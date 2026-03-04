@@ -12,7 +12,7 @@ const App = () => {
 
   async function fetchMovies() {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=cc01e69bb401cb5a9344f1f01de08a15&with_genres=27&page=4`,
+      `https://api.themoviedb.org/3/discover/movie?api_key=cc01e69bb401cb5a9344f1f01de08a15&with_genres=27&page=6`,
     );
     console.log(response.data);
     setMovies(response.data.results);

@@ -281,7 +281,7 @@ nav {
 
 .movie:hover {
     transform: scale(1.1);
-    text-shadow: 0 0 15px #fff;
+    text-shadow: 0 0 28px #fff;
 }
 
 .movie__poster {
