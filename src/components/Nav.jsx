@@ -26,12 +26,12 @@ const Nav = () => {
               </a>
             </li>
             <li className="nav__link">
-              <a href="#" className="nav__link--anchor link link__hover-effect">
+              <a href="/" className="nav__link--anchor link link__hover-effect">
                 About
               </a>
             </li>
             <li className="nav__link nav__link--contact">
-              <a href="#" className="nav__link--anchor">
+              <a href="/" className="nav__link--anchor">
                 Contact
               </a>
             </li>
@@ -59,12 +59,12 @@ const Nav = () => {
             </a>
           </li>
           <li className="nav__mobile--link link__hover-effect">
-            <a href="#" onClick={() => setMenuOpen(false)}>
+            <a href="/" onClick={() => setMenuOpen(false)}>
               About
             </a>
           </li>
           <li className="nav__mobile--link link__hover-effect">
-            <a href="#" onClick={() => setMenuOpen(false)}>
+            <a href="/" onClick={() => setMenuOpen(false)}>
               Contact
             </a>
           </li>
