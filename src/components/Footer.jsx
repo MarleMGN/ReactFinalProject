@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
 
         <p className="footer__copyright">
-          Copyright © 2025 <a href="#">Scarehaus</a> All rights reserved.
+          Copyright © 2025 <a href="/">Scarehaus</a> All rights reserved.
         </p>
       </footer>
     </>
