@@ -1,7 +1,6 @@
 import React from 'react'
 import Landing from '../components/Landing'
 import Highlights from '../components/Highlights'
-import Footer from '../components/Footer'
 import killer_background from '../assets/killer_background.jpg'
 
 const Home = ({ movies }) => {
