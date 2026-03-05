@@ -297,6 +297,12 @@ nav {
     margin-top: 20px;
     transition: all 300ms ease;
     display: inline-block;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
 }
 
 .movie__rating span {
@@ -329,11 +335,35 @@ nav {
     color: #f00;
 }
 
+.page__buttons--bottom {
+    position: absolute;
+    bottom: 0;
+}
+
 .movies__grid {
     display: flex;
     flex-wrap: wrap;
     align-items: center;  
     justify-content: space-between;
+}
+
+.allmovies__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.allmovies__logo--img {
+  width: 140px;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 12px rgba(180, 0, 0, 0.6));
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.allmovies__logo--img:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px rgba(220, 0, 0, 0.9));
 }
 
 .movie__backdrop {
@@ -344,6 +374,41 @@ nav {
 
 .movies__grid:last-child {
   justify-content: center;
+}
+
+.page__buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.page__btn {
+    transition: all 300ms ease;
+}
+
+.page__btn--left {
+    background: none;
+    color: grey;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 40px;
+}
+
+.page__btn:hover svg {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px #fff);
+}
+
+.page__btn--right {
+    background: none;
+    color: grey;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 40px;
 }
 
 /* Movie Details */ 
@@ -510,6 +575,22 @@ nav {
     box-shadow: 0 0 15px #fff;
 }
 
+.clear__btn {
+    border-radius: 20px;
+    padding: 4px 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms ease;
+    background-color: rgb(132, 1, 1);
+    color: #fff;
+    margin-left: 10px;
+}
+
+.clear__btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #fff;
+}
+
 select {
     background-color: #fff;
     border-radius: 4px;
@@ -584,6 +665,7 @@ select {
 }
 
 /* ── Tablet (max 1024px) ── */
+
 @media (max-width: 1024px) {
     .highlight {
         width: calc(100% / 2);
@@ -614,6 +696,16 @@ select {
 
     .selected__movie--info {
         text-align: center;
+    }
+
+    .page__buttons {
+        gap: 6px;
+    }
+
+    .page__btn--left,
+    .page__btn--right {
+        font-size: 28px;
+        padding: 6px 12px;
     }
 
     .selected__movie--info p {
@@ -664,6 +756,23 @@ select {
         gap: 8px;
     }
 
+    .page__buttons {
+        width: 100%;
+        justify-content: center;
+        order: -1;
+    }
+
+    .page__btn--left,
+    .page__btn--right {
+        font-size: 24px;
+        padding: 4px 10px;
+    }
+
+    .page__buttons--bottom {
+        position: static;
+        margin-top: 24px;
+    }
+
     select {
         margin-left: 0;
     }
@@ -691,6 +800,10 @@ select {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         justify-items: center
+    }
+
+    .allmovies__logo {
+        display: none;
     }
 
     .footer__links {
@@ -725,6 +838,12 @@ select {
 
     .similar__movies {
         gap: 8px;
+    }
+
+    .page__btn--left,
+    .page__btn--right {
+        font-size: 20px;
+        padding: 4px 8px;
     }
 
     .footer__links {

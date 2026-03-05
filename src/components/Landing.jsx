@@ -2,7 +2,7 @@ import landing__img from "../assets/peakpx.jpg";
 import MovieCard from "../components/MovieCard";
 
 
-const Landing = ({ movies }) => {
+const Landing = ({ movies, featured }) => {
   
   return (
     <>
@@ -19,7 +19,7 @@ const Landing = ({ movies }) => {
             </h2>
             <div className="movies__grid">
               {
-                movies?.slice(0, 6).map(movie => (
+                featured?.map((movie) => (
                   <MovieCard movie={movie} key={movie.id} />
                 ))
               }

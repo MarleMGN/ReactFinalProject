@@ -1,12 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import StarRating from "../components/StarRating";
 
-const MovieDetails = ({ movies }) => {
+const MovieDetails = ({ movies, genreMap, featuredMovies = [] }) => {
   const { id } = useParams();
-  const movie = movies?.find((movie) => String(movie.id) === id);
+  const allMovies = [
+    ...new Map([...movies, ...featuredMovies].map((m) => [m.id, m])).values(),
+  ];
+  const movie = allMovies?.find((movie) => String(movie.id) === id);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [id]);
   if (!movie) {
     return <p>Loading movie...</p>;
   }
@@ -15,28 +21,6 @@ const MovieDetails = ({ movies }) => {
 
   const shuffleArray = (movies) => {
     return [...movies].sort(() => Math.random() - 0.5);
-  };
-
-  const GENRE_MAP = {
-    28: "Action",
-    12: "Adventure",
-    16: "Animation",
-    35: "Comedy",
-    80: "Crime",
-    99: "Documentary",
-    18: "Drama",
-    10751: "Family",
-    14: "Fantasy",
-    36: "History",
-    27: "Horror",
-    10402: "Music",
-    9648: "Mystery",
-    10749: "Romance",
-    878: "Sci-Fi",
-    10770: "TV Movie",
-    53: "Thriller",
-    10752: "War",
-    37: "Western",
   };
 
   const backdrop__base__url = "https://image.tmdb.org/t/p/w1280";
@@ -72,11 +56,11 @@ const MovieDetails = ({ movies }) => {
                   />
                 </figure>
                 <div className="selected__movie--info">
-                  <h3>{movie.original_title}</h3>
+                  <h3>{movie.title}</h3>
                   <div className="movie__genres">
                     {movie.genre_ids.map((id) => (
                       <span key={id} className="genre__tag">
-                        {GENRE_MAP[id]}
+                        {genreMap[id]}
                       </span>
                     ))}
                   </div>
